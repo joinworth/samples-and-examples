@@ -46,7 +46,8 @@ namespace BulkBatcher.Models
         public string? NaicsTitle { get; set; }
 
         [JsonPropertyName("mcc_code")]
-        public decimal? MccCode { get; set; }
+        [JsonConverter(typeof(NullableInt32JsonConverter))]
+        public int? MccCode { get; set; }
 
         [JsonPropertyName("industry")]
         public string? Industry { get; set; }
