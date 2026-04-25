@@ -83,6 +83,12 @@ namespace BulkBatcher
 
                 var businesses = JsonSerializer.Deserialize<List<CreateBusinessPayload>>(jsonContent, options);
 
+                if (businesses != null)
+                {
+                    foreach (var business in businesses)
+                        business.Owner1Mobile = EnsureLeadingPlusForInternationalMobile(business.Owner1Mobile);
+                }
+
                 Log($"Successfully loaded {businesses?.Count ?? 0} businesses from JSON file.");
 
                 // Display some data to verify loading worked correctly
@@ -176,6 +182,22 @@ namespace BulkBatcher
         /// <summary>
         /// Splits a list into batches of specified size
         /// </summary>
+        /// <summary>
+        /// Ensures owner mobile values that include a country code use a leading + (E.164-style).
+        /// If the first non-whitespace character is not +, one is prepended.
+        /// </summary>
+        private static string? EnsureLeadingPlusForInternationalMobile(string? owner1Mobile)
+        {
+            if (owner1Mobile is null)
+                return null;
+            var trimmed = owner1Mobile.Trim();
+            if (trimmed.Length == 0)
+                return null;
+            if (trimmed[0] == '+')
+                return trimmed;
+            return '+' + trimmed;
+        }
+
         private static List<List<CreateBusinessPayload>> CreateBatches(List<CreateBusinessPayload> items, int batchSize)
         {
             var batches = new List<List<CreateBusinessPayload>>();
