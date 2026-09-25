@@ -24,19 +24,25 @@ namespace BulkBatcher
     /// </summary>
     class Program
     {
-        private const int BatchSize = 1; // This is using the batch upload endpoint, but please keep this to 1 to avoid overloading the API.
-        private const string JsonFileName = "testData.json"; // The JSON file containing business data - You can change this to your actual file name
-        private const string CsvFileName = "errored-businesses.csv"; // The CSV file containing business data - You can change this to your actual file name
-        private const string AuthUrl = "https://api.joinworth.com/auth/api/v1/admin/sign-in"; // URL for authentication endpoint
-        private const string CaseUrl = "https://api.joinworth.com/case/api/v1/businesses/customers"; // Base URL for the API endpoint
-        private const string CustomerId = "your-customer-id-here!"; // Your customer ID for the API
-        private const string Email = "your-email-here!"; // Your email for authentication
-        private const string Password = "your-password-here!"; // Your password for authentication
-        private const Boolean isCSV = true; // Set to true if you are using CSV file upload, false if using JSON file upload
-        private const int delayInterval = 5000; // Delay interval between batch requests in milliseconds. 
-        private const string errorLogFileName = "error_log.txt"; // File to log errors
-        private const int TokenLifetimeMinutes = 60; // Auth token lifetime in minutes
-        private const int TokenRefreshBufferMinutes = 10; // Refresh token this many minutes before expiry
+        // All of the settings below come from the .env file next to this project.
+        // Copy .env.example to .env and fill in your own values - .env is git-ignored
+        // so credentials never end up in source control.
+        // These are properties rather than fields on purpose: a field initializer runs
+        // before Main, so a missing or malformed setting would surface as an opaque
+        // TypeInitializationException instead of the readable message Main logs.
+        private static int BatchSize => Env.GetInt("BATCH_SIZE", 1); // This is using the batch upload endpoint, but please keep this to 1 to avoid overloading the API.
+        private static string JsonFileName => Env.GetString("JSON_FILE_NAME", "testData.json"); // The JSON file containing business data - You can change this to your actual file name
+        private static string CsvFileName => Env.GetString("CSV_FILE_NAME", "testData.csv"); // The CSV file containing business data - You can change this to your actual file name
+        private static string AuthUrl => Env.GetString("AUTH_URL", "https://api.joinworth.com/auth/api/v1/admin/sign-in"); // URL for authentication endpoint
+        private static string CaseUrl => Env.GetString("CASE_URL", "https://api.joinworth.com/case/api/v1/businesses/customers"); // Base URL for the API endpoint
+        private static string CustomerId => Env.GetRequiredString("CUSTOMER_ID"); // Your customer ID for the API
+        private static string Email => Env.GetRequiredString("EMAIL"); // Your email for authentication
+        private static string Password => Env.GetRequiredString("PASSWORD"); // Your password for authentication
+        private static bool isCSV => Env.GetBool("IS_CSV", true); // Set to true if you are using CSV file upload, false if using JSON file upload
+        private static int delayInterval => Env.GetInt("DELAY_INTERVAL_MS", 10000); // Delay interval between batch requests in milliseconds. 
+        private static string errorLogFileName => Env.GetString("ERROR_LOG_FILE_NAME", "error_log.txt"); // File to log errors
+        private static int TokenLifetimeMinutes => Env.GetInt("TOKEN_LIFETIME_MINUTES", 60); // Auth token lifetime in minutes
+        private static int TokenRefreshBufferMinutes => Env.GetInt("TOKEN_REFRESH_BUFFER_MINUTES", 10); // Refresh token this many minutes before expiry
 
         private static string _currentToken = string.Empty;
         private static DateTime _tokenAcquiredAt = DateTime.MinValue;
@@ -92,7 +98,7 @@ namespace BulkBatcher
                 Log($"Successfully loaded {businesses?.Count ?? 0} businesses from JSON file.");
 
                 // Display some data to verify loading worked correctly
-                //if (businesses != null && businesses.Count > 0)
+                // if (businesses != null && businesses.Count > 0)
                 //{
                 //    Console.WriteLine("\nbusinesses:");
                 //    foreach (var business in businesses.Take(2))
