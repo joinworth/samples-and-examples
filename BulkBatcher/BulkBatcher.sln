@@ -1,8 +1,14 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.5.2.0
+# Visual Studio Version 18
+VisualStudioVersion = 18.4.11612.150 stable
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BulkBatcher", "BulkBatcher.csproj", "{5F3A034A-C40D-3BDA-BD02-5FF7D67048BE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdRipper", "..\IdRipper\IdRipper.csproj", "{797FE09B-F941-45DA-9550-0362FBC50982}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuidGenerator", "..\GuidGenerator\GuidGenerator.csproj", "{8E3084D9-D979-4EE5-9B45-7E091EA11C5A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ListComparer", "..\ListComparer\ListComparer.csproj", "{96BD25E9-D72A-46C4-8878-BDE8D7EAF158}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -14,6 +20,18 @@ Global
 		{5F3A034A-C40D-3BDA-BD02-5FF7D67048BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F3A034A-C40D-3BDA-BD02-5FF7D67048BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5F3A034A-C40D-3BDA-BD02-5FF7D67048BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{797FE09B-F941-45DA-9550-0362FBC50982}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{797FE09B-F941-45DA-9550-0362FBC50982}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{797FE09B-F941-45DA-9550-0362FBC50982}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{797FE09B-F941-45DA-9550-0362FBC50982}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E3084D9-D979-4EE5-9B45-7E091EA11C5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E3084D9-D979-4EE5-9B45-7E091EA11C5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E3084D9-D979-4EE5-9B45-7E091EA11C5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E3084D9-D979-4EE5-9B45-7E091EA11C5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96BD25E9-D72A-46C4-8878-BDE8D7EAF158}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96BD25E9-D72A-46C4-8878-BDE8D7EAF158}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96BD25E9-D72A-46C4-8878-BDE8D7EAF158}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96BD25E9-D72A-46C4-8878-BDE8D7EAF158}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

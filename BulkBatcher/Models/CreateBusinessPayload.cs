@@ -46,7 +46,8 @@ namespace BulkBatcher.Models
         public string? NaicsTitle { get; set; }
 
         [JsonPropertyName("mcc_code")]
-        public decimal? MccCode { get; set; }
+        [JsonConverter(typeof(NullableInt32JsonConverter))]
+        public int? MccCode { get; set; }
 
         [JsonPropertyName("industry")]
         public string? Industry { get; set; }
@@ -94,63 +95,83 @@ namespace BulkBatcher.Models
         public string? Address1Mobile { get; set; }
 
         [JsonPropertyName("year_created")]
+        [JsonConverter(typeof(NullableInt32JsonConverter))]
         public int? YearCreated { get; set; }
 
         [JsonPropertyName("annual_total_income")]
+        [JsonConverter(typeof(NullableDecimalJsonConverter))]
         public decimal? AnnualTotalIncome { get; set; }
 
         [JsonPropertyName("total_wages")]
+        [JsonConverter(typeof(NullableDecimalJsonConverter))]
         public decimal? TotalWages { get; set; }
 
         [JsonPropertyName("annual_net_income")]
+        [JsonConverter(typeof(NullableDecimalJsonConverter))]
         public decimal? AnnualNetIncome { get; set; }
 
         [JsonPropertyName("cost_of_goods_sold")]
+        [JsonConverter(typeof(NullableDecimalJsonConverter))]
         public decimal? CostOfGoodsSold { get; set; }
 
         [JsonPropertyName("total_liabilities")]
+        [JsonConverter(typeof(NullableDecimalJsonConverter))]
         public decimal? TotalLiabilities { get; set; }
 
         [JsonPropertyName("total_assets")]
+        [JsonConverter(typeof(NullableDecimalJsonConverter))]
         public decimal? TotalAssets { get; set; }
 
         [JsonPropertyName("total_equity")]
+        [JsonConverter(typeof(NullableDecimalJsonConverter))]
         public decimal? TotalEquity { get; set; }
 
         [JsonPropertyName("total_accounts_payable")]
+        [JsonConverter(typeof(NullableInt32JsonConverter))]
         public int? TotalAccountsPayable { get; set; }
 
         [JsonPropertyName("total_accounts_recievable")]
+        [JsonConverter(typeof(NullableInt32JsonConverter))]
         public int? TotalAccountsReceivable { get; set; }
 
         [JsonPropertyName("total_cash_and_cash_equivalents")]
+        [JsonConverter(typeof(NullableDecimalJsonConverter))]
         public decimal? TotalCashAndCashEquivalents { get; set; }
 
         [JsonPropertyName("total_short_term_investments")]
+        [JsonConverter(typeof(NullableDecimalJsonConverter))]
         public decimal? TotalShortTermInvestments { get; set; }
 
         [JsonPropertyName("total_current_assets")]
+        [JsonConverter(typeof(NullableDecimalJsonConverter))]
         public decimal? TotalCurrentAssets { get; set; }
 
         [JsonPropertyName("total_current_liabilities")]
+        [JsonConverter(typeof(NullableDecimalJsonConverter))]
         public decimal? TotalCurrentLiabilities { get; set; }
 
         [JsonPropertyName("non_current_liablities")]
+        [JsonConverter(typeof(NullableDecimalJsonConverter))]
         public decimal? NonCurrentLiabilities { get; set; }
 
         [JsonPropertyName("annual_cost_of_goods_sold")]
+        [JsonConverter(typeof(NullableDecimalJsonConverter))]
         public decimal? AnnualCostOfGoodsSold { get; set; }
 
         [JsonPropertyName("annual_gross_profit")]
+        [JsonConverter(typeof(NullableDecimalJsonConverter))]
         public decimal? AnnualGrossProfit { get; set; }
 
         [JsonPropertyName("annual_taxes_paid")]
+        [JsonConverter(typeof(NullableDecimalJsonConverter))]
         public decimal? AnnualTaxesPaid { get; set; }
 
         [JsonPropertyName("annual_interest_expenses")]
+        [JsonConverter(typeof(NullableDecimalJsonConverter))]
         public decimal? AnnualInterestExpenses { get; set; }
 
         [JsonPropertyName("number_of_employees")]
+        [JsonConverter(typeof(NullableInt32JsonConverter))]
         public int? NumberOfEmployees { get; set; }
 
         [JsonPropertyName("business_type")]
@@ -163,6 +184,7 @@ namespace BulkBatcher.Models
         public string? ScoreRetrievalDate { get; set; }
 
         [JsonPropertyName("business_liens")]
+        [JsonConverter(typeof(NullableInt32JsonConverter))]
         public int? BusinessLiens { get; set; }
 
         [JsonPropertyName("business_liens_file_date")]
@@ -175,6 +197,7 @@ namespace BulkBatcher.Models
         public string? BusinessLiensStatusDate { get; set; }
 
         [JsonPropertyName("business_bankruptcies")]
+        [JsonConverter(typeof(NullableInt32JsonConverter))]
         public int? BusinessBankruptcies { get; set; }
 
         [JsonPropertyName("business_bankruptcies_file_date")]
@@ -193,6 +216,7 @@ namespace BulkBatcher.Models
         public string? BusinessBankruptciesStatusDate { get; set; }
 
         [JsonPropertyName("business_judgements")]
+        [JsonConverter(typeof(NullableDecimalJsonConverter))]
         public decimal? BusinessJudgements { get; set; }
 
         [JsonPropertyName("business_judgements_file_date")]
@@ -205,12 +229,15 @@ namespace BulkBatcher.Models
         public string? BusinessJudgementsStatusDate { get; set; }
 
         [JsonPropertyName("business_judgements_amount")]
+        [JsonConverter(typeof(NullableDecimalJsonConverter))]
         public decimal? BusinessJudgementsAmount { get; set; }
 
         [JsonPropertyName("social_review_count")]
+        [JsonConverter(typeof(NullableInt32JsonConverter))]
         public int? SocialReviewCount { get; set; }
 
         [JsonPropertyName("social_review_score")]
+        [JsonConverter(typeof(NullableDecimalJsonConverter))]
         public decimal? SocialReviewScore { get; set; }
 
         [JsonPropertyName("owner1_title")]
@@ -256,6 +283,7 @@ namespace BulkBatcher.Models
         public string? Owner1OwnerType { get; set; }
 
         [JsonPropertyName("owner1_ownership_percentage")]
+        [JsonConverter(typeof(NullableDecimalJsonConverter))]
         public decimal? Owner1OwnershipPercentage { get; set; }
 
         [JsonPropertyName("bank_account_number")]
@@ -283,12 +311,15 @@ namespace BulkBatcher.Models
         public string? BankAccountSubtype { get; set; }
 
         [JsonPropertyName("bank_account_balance_current")]
+        [JsonConverter(typeof(NullableDecimalJsonConverter))]
         public decimal? BankAccountBalanceCurrent { get; set; }
 
         [JsonPropertyName("bank_account_balance_available")]
+        [JsonConverter(typeof(NullableDecimalJsonConverter))]
         public decimal? BankAccountBalanceAvailable { get; set; }
 
         [JsonPropertyName("bank_account_balance_limit")]
+        [JsonConverter(typeof(NullableDecimalJsonConverter))]
         public decimal? BankAccountBalanceLimit { get; set; }
 
         [JsonPropertyName("deposit_account")]
